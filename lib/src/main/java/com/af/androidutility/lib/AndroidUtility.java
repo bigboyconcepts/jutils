@@ -5,10 +5,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Looper;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
@@ -20,12 +22,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -235,24 +231,7 @@ public class AndroidUtility
         return URLEncoder.encode(string);
     }
 
-    /**
-     * Read file from /res/raw to string
-     *
-     * @param rawResId of the file
-     * @return Content of the file as string
-     */
-    public static String readRawFile(Context context, int rawResId) throws IOException
-    {
-        InputStream is = context.getResources().openRawResource(rawResId);
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
-        String read;
-        StringBuilder sb = new StringBuilder();
-        while ((read = br.readLine()) != null)
-        {
-            sb.append(read);
-        }
-        return sb.toString();
-    }
+
 
     public static String decodeString(String input)
     {
@@ -297,12 +276,12 @@ public class AndroidUtility
         return !TextUtils.isEmpty(value) && !"null".equals(value.toLowerCase());
     }
 
-    public static String formatDateString(@NotNull SimpleDateFormat outFormat, long date)
+    public static String formatDateString(@NonNull SimpleDateFormat outFormat, long date)
     {
         return outFormat.format(date);
     }
 
-    public static String parseAndFormatDateString(@NotNull SimpleDateFormat inFormat, @NotNull SimpleDateFormat outFormat, String date)
+    public static String parseAndFormatDateString(@NonNull SimpleDateFormat inFormat, @NonNull SimpleDateFormat outFormat, String date)
     {
         try
         {
@@ -315,7 +294,7 @@ public class AndroidUtility
         }
     }
 
-    public static long parseDateString(@NotNull SimpleDateFormat inFormat, String date)
+    public static long parseDateString(@NonNull SimpleDateFormat inFormat, String date)
     {
         if(date == null)return 0;
         try
@@ -329,7 +308,7 @@ public class AndroidUtility
         }
     }
 
-    public static void setTextOrHideIfTextIsNull(@NotNull TextView textView, @NotNull LinearLayout textViewContainer, @Nullable String text)
+    public static void setTextOrHideIfTextIsNull(@NonNull TextView textView, @NonNull LinearLayout textViewContainer, @Nullable String text)
     {
         if (isStringValid(text))
         {
@@ -388,5 +367,35 @@ public class AndroidUtility
         {
             return false;
         }
+    }
+
+    public static int getVersionCode(Context context)
+    {
+        PackageInfo pInfo = null;
+        try
+        {
+            pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+        }
+        catch (PackageManager.NameNotFoundException e)
+        {
+            e.printStackTrace();
+            //practically cant happen
+        }
+        return pInfo.versionCode;
+    }
+
+    public static String getVersionName(Context context)
+    {
+        PackageInfo pInfo = null;
+        try
+        {
+            pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+        }
+        catch (PackageManager.NameNotFoundException e)
+        {
+            e.printStackTrace();
+            //practically cant happen
+        }
+        return pInfo.versionName;
     }
 }
