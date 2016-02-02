@@ -13,7 +13,7 @@ import java.util.List;
 public abstract class RVArrayAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
     @NonNull
-    protected Context context;
+    protected final Context context;
 
     @NonNull
     List<T> items;
