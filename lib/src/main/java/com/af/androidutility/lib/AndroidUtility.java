@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Looper;
@@ -397,5 +398,15 @@ public class AndroidUtility
             //practically cant happen
         }
         return pInfo.versionName;
+    }
+
+    public static boolean isTablet(@NonNull Context context)
+    {
+        return context.getResources().getBoolean(R.bool.is_tablet);
+    }
+
+    public static boolean isLandscape(@NonNull Context context)
+    {
+        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 }
