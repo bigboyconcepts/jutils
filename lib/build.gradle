@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:2.0.0-beta6'
     }
 }
 apply plugin: 'com.android.library'
@@ -11,7 +11,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = 'com.af'
-version = '1.0.0.8'
+version = '1.0.0.9'
 
 repositories {
     jcenter()
@@ -109,7 +109,7 @@ uploadArchives {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile "com.android.support:recyclerview-v7:23.1.1"
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile "com.android.support:recyclerview-v7:23.2.0"
     archives "org.apache.maven.wagon:wagon-ssh:2.2"
 }
