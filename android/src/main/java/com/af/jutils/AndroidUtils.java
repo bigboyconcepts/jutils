@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Looper;
@@ -14,6 +15,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.af.androidutility.lib.R;
 
 /**
  * Created by pedja on 10/9/13 10.17.
@@ -113,5 +116,15 @@ public class AndroidUtils
             //practically cant happen
         }
         return pInfo.versionName;
+    }
+
+    public static boolean isTablet(@NonNull Context context)
+    {
+        return context.getResources().getBoolean(R.bool.is_tablet);
+    }
+
+    public static boolean isLandscape(@NonNull Context context)
+    {
+        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 }
