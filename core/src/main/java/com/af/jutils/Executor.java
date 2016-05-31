@@ -1,4 +1,4 @@
-package com.af.androidutility.lib;
+package com.af.jutils;
 
 import java.util.ArrayList;
 import java.util.List;

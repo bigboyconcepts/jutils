@@ -1,4 +1,4 @@
-package com.af.androidutility.lib;
+package com.af.jutils;
 
 import android.content.Context;
 import android.graphics.Point;
@@ -14,12 +14,12 @@ import android.view.WindowManager;
  * @author Predrag Čokulov
  */
 @SuppressWarnings("deprecation")
-public class DisplayManager
+public class DisplayUtils
 {
     public final int screenWidth;
     public final int screenHeight;
 
-    public DisplayManager(Context context)
+    public DisplayUtils(Context context)
     {
         if(context == null)
             throw new IllegalArgumentException("Context cannot be null");

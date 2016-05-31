@@ -1,18 +1,15 @@
-package com.af.androidutility.lib;
-
-import android.util.Log;
+package com.af.jutils;
 
 import java.text.DecimalFormat;
 
-public class TimeUtility
+public class TimeUtils
 {
-    public final String LOG_TAG = "AndroidUtility" + ":" + getClass().getSimpleName();
     private long timerStart = 0;
     private long timerStartTotal = 0;
     private long iterations = 0;
     private double timeElapsed;
 
-    public TimeUtility()
+    public TimeUtils()
     {
         timerStart = System.currentTimeMillis();
         timerStartTotal = System.currentTimeMillis();
@@ -47,17 +44,17 @@ public class TimeUtility
 
     public void log(String message)
     {
-        if(Logging.LOGGING) Log.d(LOG_TAG, message + get());
+        if(Logging.LOGGING) System.out.println(message + get());
     }
 
     public void logAvg(String message)
     {
-        if(Logging.LOGGING) Log.d(LOG_TAG, message + avg());
+        if(Logging.LOGGING) System.out.println(message + avg());
     }
 
     public void logTotal(String message)
     {
-        if(Logging.LOGGING) Log.d(LOG_TAG, message + total());
+        if(Logging.LOGGING) System.out.println(message + total());
     }
 
     public void reset()

@@ -1,10 +1,10 @@
-package com.af.androidutility.lib;
+package com.af.jutils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-public class Network
+public class NetworkUtils
 {
     public static boolean isNetworkAvailable(Context context)
     {
@@ -38,11 +38,11 @@ public class Network
 
     public static NETWORK_STATE getNetworkState(Context context)
     {
-        if(Network.isWiFiConnected(context))
+        if(NetworkUtils.isWiFiConnected(context))
         {
             return NETWORK_STATE.online_wifi;
         }
-        else if(Network.isNetworkAvailable(context))
+        else if(NetworkUtils.isNetworkAvailable(context))
         {
             return NETWORK_STATE.online_3g;
         }

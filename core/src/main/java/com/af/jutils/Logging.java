@@ -1,4 +1,4 @@
-package com.af.androidutility.lib;
+package com.af.jutils;
 
 /**
  * Created by pedja on 24.11.15. 10.29.

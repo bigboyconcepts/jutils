@@ -1,10 +1,10 @@
-package com.af.androidutility.lib;
+package com.af.jutils;
 
 import android.os.Build;
 
 import java.util.UUID;
 
-public class DeviceIDUtility
+public class DeviceIDUtils
 {
     /**
      * Return pseudo unique ID
