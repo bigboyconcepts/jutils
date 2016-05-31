@@ -15,7 +15,7 @@ public class JUtils
 
     }
 
-    public static final Pattern MAIL_PATTERN = Pattern.compile("(.+)@.+\\.[a-z]+");
+    public static final Pattern MAIL_PATTERN = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
     /**
      * Check if email is in valid format(eg. test@gmail.com)
@@ -32,6 +32,8 @@ public class JUtils
      * Calculate larges possible power of two image size smaller than maxWidth*/
     public static int getMaxImageSizePOW(int maxWidth)
     {
+        if(maxWidth == 0)
+            return 0;
         int res = 2;
         while (res < maxWidth)
         {
