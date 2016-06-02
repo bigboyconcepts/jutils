@@ -242,4 +242,9 @@ public class StringUtils
     {
         return str == null || str.length() == 0;
     }
+
+    public static String toLowerCase(String text)
+    {
+        return text == null ? null : text.toUpperCase();
+    }
 }
