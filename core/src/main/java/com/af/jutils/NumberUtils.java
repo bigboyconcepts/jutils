@@ -1,5 +1,7 @@
 package com.af.jutils;
 
+import java.util.Random;
+
 /**
  * Created by pedja on 31.5.16. 11.03.
  * This class is part of the android-utility
@@ -7,6 +9,7 @@ package com.af.jutils;
  */
 public class NumberUtils
 {
+    private static Random RANDOM = new Random();
     private NumberUtils()
     {
 
@@ -76,5 +79,10 @@ public class NumberUtils
             if (Logging.LOGGING) System.out.println(log);
         }
         return mDefault;
+    }
+
+    public static int nextIntInRange(int min, int max)
+    {
+        return min + RANDOM.nextInt((max - min) + 1);
     }
 }
