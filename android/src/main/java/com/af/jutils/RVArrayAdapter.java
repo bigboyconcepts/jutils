@@ -1,10 +1,11 @@
-package com.af.androidutility.lib;
+package com.af.jutils;
 
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.Arrays;
 import java.util.List;
@@ -88,6 +89,6 @@ public abstract class RVArrayAdapter<T> extends RecyclerView.Adapter<RecyclerVie
 
     public interface OnItemClickListener
     {
-        void onItemClick(Object item, int position);
+        void onItemClick(View view, Object item, int position);
     }
 }
