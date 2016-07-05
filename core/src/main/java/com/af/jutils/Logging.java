@@ -8,4 +8,5 @@ package com.af.jutils;
 public class Logging
 {
     public static boolean LOGGING = false;
+    public static final String TAG = "jutils";
 }
