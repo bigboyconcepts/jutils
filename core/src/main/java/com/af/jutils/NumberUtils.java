@@ -67,7 +67,7 @@ public class NumberUtils
      * @param mDefault default value to return in case of value is not integer
      * @return parsed float or default value
      */
-    public static double parseFloat(String value, float mDefault)
+    public static float parseFloat(String value, float mDefault)
     {
         try
         {
