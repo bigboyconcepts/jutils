@@ -60,6 +60,28 @@ public class NumberUtils
     }
 
     /**
+     * Tries to parse String as Float
+     * if error occurs default value will be returned
+     *
+     * @param value    String to parse as int
+     * @param mDefault default value to return in case of value is not integer
+     * @return parsed float or default value
+     */
+    public static double parseFloat(String value, float mDefault)
+    {
+        try
+        {
+            return Float.parseFloat(value);
+        }
+        catch (NumberFormatException e)
+        {
+            String log = "Utility.parseFloat >> failed to parse " + value + " as float";
+            if (Logging.LOGGING) System.out.println(log);
+        }
+        return mDefault;
+    }
+
+    /**
      * Tries to parse String as Long
      * if error occurs default value will be returned
      *
