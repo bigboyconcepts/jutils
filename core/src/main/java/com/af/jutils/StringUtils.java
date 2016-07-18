@@ -201,8 +201,24 @@ public class StringUtils
                 || (allow != null && allow.indexOf(c) != NOT_FOUND);
     }
 
+    /**
+     * Check if string is valid
+     * Sting is valid if:
+     * - is not null
+     * - is not equal to 'null'
+     * - is not empty, eg ""*/
     public static boolean isStringValid(String value)
     {
+        return !isEmpty(value) && !"null".equals(value.toLowerCase());
+    }
+
+    /**
+     * Same as {@link #isStringValid(String)} except that it can also trim string before checking
+     * @param trim trim values using {@link String#trim()} before checking if valid*/
+    public static boolean isStringValid(String value, boolean trim)
+    {
+        if(trim && value != null)
+            value = value.trim();
         return !isEmpty(value) && !"null".equals(value.toLowerCase());
     }
 
