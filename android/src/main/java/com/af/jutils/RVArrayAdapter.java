@@ -67,6 +67,12 @@ public abstract class RVArrayAdapter<T> extends RecyclerView.Adapter<RecyclerVie
         notifyDataSetChanged();
     }
 
+    public void add(int position, T item)
+    {
+        items.add(position, item);
+        notifyDataSetChanged();
+    }
+
     public void addAll(List<T> list, int index)
     {
         items.addAll(index, list);
