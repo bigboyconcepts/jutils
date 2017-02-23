@@ -6,6 +6,9 @@ import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.widget.Toast;
 
+import com.github.johnpersano.supertoasts.library.Style;
+import com.github.johnpersano.supertoasts.library.SuperToast;
+
 /**
  * Created by pedja on 31.5.16. 11.01.
  * This class is part of the android-utility
@@ -13,6 +16,21 @@ import android.widget.Toast;
  */
 public class Alert
 {
+    private static boolean SUPERTOAST_AVAILABLE;
+    public static boolean USE_SUPERTOAST = true;
+
+    static
+    {
+        try
+        {
+            Class.forName("com.github.johnpersano.supertoasts.library.SuperToast");
+            SUPERTOAST_AVAILABLE = true;
+        }
+        catch (ClassNotFoundException e)
+        {
+            SUPERTOAST_AVAILABLE = false;
+        }
+    }
     /**
      * General Purpose AlertDialog
      */
@@ -47,7 +65,32 @@ public class Alert
      */
     public static void showToast(Context context, String message, int length)
     {
-        Toast.makeText(context, message != null ? Html.fromHtml(message) : null, length).show();
+        if(message == null)
+            return;
+        if(SUPERTOAST_AVAILABLE && USE_SUPERTOAST)
+        {
+            if(length == Toast.LENGTH_LONG)
+            {
+                length = Style.DURATION_LONG;
+            }
+            else if(length == Toast.LENGTH_SHORT)
+            {
+                length = Style.DURATION_SHORT;
+            }
+            Style style = new Style();
+            style.type = Style.TYPE_STANDARD;
+            style.frame = Style.FRAME_STANDARD;
+            final SuperToast toast = SuperToast.create(context, Html.fromHtml(message), length);
+            toast.show();
+        }
+        else
+        {
+            if(length > 1)
+            {
+                length = Toast.LENGTH_LONG;
+            }
+            Toast.makeText(context, Html.fromHtml(message), length).show();
+        }
     }
 
     /**
@@ -63,6 +106,6 @@ public class Alert
      */
     public static void showToast(Context context, int resId)
     {
-        Toast.makeText(context, Html.fromHtml(context.getString(resId)), Toast.LENGTH_LONG).show();
+        showToast(context, context.getString(resId));
     }
 }

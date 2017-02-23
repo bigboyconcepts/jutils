@@ -259,6 +259,11 @@ public class StringUtils
         return str == null || str.length() == 0;
     }
 
+    public static boolean equal(String str1, String str2)
+    {
+        return !((str1 == null || str1.isEmpty()) && (str2 == null || str2.isEmpty())) && str1 != null && str1.equals(str2);
+    }
+
     public static String toLowerCase(String text)
     {
         return text == null ? null : text.toUpperCase();

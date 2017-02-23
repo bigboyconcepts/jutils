@@ -40,13 +40,7 @@
             <option value="$PROJECT_DIR$/core" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/android" />
-            <option value="$PROJECT_DIR$/core" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
@@ -93,25 +87,16 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-utility.iml" filepath="$PROJECT_DIR$/.idea/modules/android-utility.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/android.iml" filepath="$PROJECT_DIR$/android/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-utility.iml" filepath="$PROJECT_DIR$/android-utility.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="RunConfigurationProducerService">
-    <option name="ignoredProducers">
-      <set>
-        <option value="org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer" />
-        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer" />
-        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer" />
-      </set>
-    </option>
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
@@ -140,25 +125,25 @@
         <root url="jar://$USER_HOME$/sdk/extras/android/m2repository/com/android/support/appcompat-v7/23.3.0/appcompat-v7-23.3.0-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="core.core-2.0.0">
+    <library name="core.core-2.0.4">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/core/build/libs/core-2.0.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/core/build/libs/core-2.0.4.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/core/build/libs/core-2.0.0-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/core/build/libs/core-2.0.4-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="core.core-2.0.0-javadoc">
+    <library name="core.core-2.0.4-javadoc">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/core/build/libs/core-2.0.0-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/core/build/libs/core-2.0.4-javadoc.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
     </library>
-    <library name="core.core-2.0.0-sources">
+    <library name="core.core-2.0.4-sources">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/core/build/libs/core-2.0.0-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/core/build/libs/core-2.0.4-sources.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

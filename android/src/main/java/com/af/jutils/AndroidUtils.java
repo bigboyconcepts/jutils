@@ -8,10 +8,14 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.text.TextUtilsCompat;
+import android.support.v4.view.ViewCompat;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,6 +26,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Locale;
 
 /**
  * Created by pedja on 10/9/13 10.17.
@@ -38,13 +43,23 @@ public class AndroidUtils
      * Converts Density-independent pixel (dp) into pixels
      *
      * @param dp      input value
-     * @param context Context for retrieving resources
      */
-    public static float convertDpToPixel(float dp, Context context)
+    public static float convertDpToPixel(float dp)
     {
-        Resources resources = context.getResources();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
+        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         return dp * (metrics.densityDpi / 160f);
+    }
+
+
+    /**
+     * Converts pixels into Density-independent pixel (dp)
+     *
+     * @param px      input value
+     */
+    public static float convertPixelsToDp(float px)
+    {
+        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+        return Math.round(px / (metrics.densityDpi / 160f));
     }
 
     public static void openLink(Activity activity, String url)
@@ -150,5 +165,31 @@ public class AndroidUtils
             sb.append(read);
         }
         return sb.toString();
+    }
+
+    public static int getActionBarSize(Activity activity)
+    {
+        TypedValue tv = new TypedValue();
+        if (activity.getTheme().resolveAttribute(R.attr.actionBarSize, tv, true))
+        {
+            return TypedValue.complexToDimensionPixelSize(tv.data, activity.getResources().getDisplayMetrics());
+        }
+        return 0;
+    }
+
+    public static boolean isRTL()
+    {
+        int layoutDirection = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault());
+        return layoutDirection == ViewCompat.LAYOUT_DIRECTION_RTL;
+    }
+
+    public static int getStatusBarHeight(final Context context)
+    {
+        final Resources resources = context.getResources();
+        final int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0)
+            return resources.getDimensionPixelSize(resourceId);
+        else
+            return (int) Math.ceil((Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? 24 : 25) * resources.getDisplayMetrics().density);
     }
 }

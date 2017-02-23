@@ -10,7 +10,6 @@ import android.view.View;
 import java.util.Arrays;
 import java.util.List;
 
-
 public abstract class RVArrayAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
     @NonNull
@@ -81,6 +80,11 @@ public abstract class RVArrayAdapter<T> extends RecyclerView.Adapter<RecyclerVie
     public void remove(T item)
     {
         items.remove(item);
+    }
+
+    public void remove(int position)
+    {
+        items.remove(position);
     }
 
     public OnItemClickListener getOnItemClickListener()

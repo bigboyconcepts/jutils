@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 
 /**
  * Created by pedja on 31.5.16. 13.52.
@@ -27,5 +28,17 @@ public class IOUtils
             string.append(line);
         }
         return string.toString();
+    }
+
+    public static void copyStream(InputStream is, OutputStream os) throws IOException
+    {
+        byte[] buffer = new byte[4 * 1024]; // or other buffer size
+        int read;
+
+        while ((read = is.read(buffer)) != -1)
+        {
+            os.write(buffer, 0, read);
+        }
+        os.flush();
     }
 }

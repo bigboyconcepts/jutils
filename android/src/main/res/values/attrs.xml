@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HashTagEditText">
+        <attr name="horizontalSpacing" format="reference|dimension" />
+        <attr name="verticalSpacing" format="reference|dimension" />
+        <attr name="horizontalPadding" format="reference|dimension" />
+        <attr name="verticalPadding" format="reference|dimension" />
+        <attr name="maxSize" format="integer" />
+        <attr name="bubbleTextColor" format="reference|color" />
+        <attr name="bubbleTextSize" format="reference|dimension" />
+        <attr name="bubbleBackground" format="reference|color" />
+    </declare-styleable>
+    <declare-styleable name="RatingBar">
+        <attr name="android:orientation" />
+        <attr name="stars" format="integer"/>
+        <attr name="rating" format="integer"/>
+        <attr name="drawable" format="reference"/>
+        <attr name="star_spacing" format="dimension"/>
+        <attr name="android:enabled"/>
+    </declare-styleable>
+
+</resources>
