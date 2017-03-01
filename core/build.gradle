@@ -5,7 +5,7 @@ apply plugin: 'signing'
 
 sourceCompatibility = 1.7
 
-group 'com.af.jutils'
+group 'com.af'
 version '2.1.0'
 
 repositories {
@@ -47,7 +47,7 @@ uploadArchives {
             }
 
             pom.project {
-                artifactId 'core'
+                artifactId 'jutils-core'
                 name 'jutils-java'
                 packaging 'jar'
                 description 'Java utility'

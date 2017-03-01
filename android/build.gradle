@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-group = 'com.af.jutils'
+group = 'com.af'
 version = '2.1.0'
 
 repositories {
@@ -68,7 +68,7 @@ uploadArchives {
             }
 
             pom.project {
-                artifactId 'android'
+                artifactId 'jutils-android'
                 name 'jutils-android'
                 packaging 'aar'
                 description 'java utils android module'
