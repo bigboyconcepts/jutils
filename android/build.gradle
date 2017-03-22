@@ -63,7 +63,14 @@ publishing {
 
                     def dependencyNode = dependenciesNode.appendNode('dependency')
                     dependencyNode.appendNode('groupId', dep.group)
-                    dependencyNode.appendNode('artifactId', dep.name)
+                    if (dep.name == "core")
+                    {
+                        dependencyNode.appendNode('artifactId', "jutils-" + dep.name)
+                    }
+                    else
+                    {
+                        dependencyNode.appendNode('artifactId', dep.name)
+                    }
                     dependencyNode.appendNode('version', dep.version)
 
                     if (!dep.transitive)
