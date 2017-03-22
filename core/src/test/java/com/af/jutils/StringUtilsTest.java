@@ -14,11 +14,11 @@ public class StringUtilsTest
     @Test
     public void randomIsStringValidTest()
     {
-        assertEquals(StringUtils.isStringValid("null"), false);
-        assertEquals(StringUtils.isStringValid(""), false);
-        assertEquals(StringUtils.isStringValid(" "), true);
-        assertEquals(StringUtils.isStringValid(" ", true), false);
-        assertEquals(StringUtils.isStringValid(null), false);
+        assertEquals(org.skynetsoftware.jutils.StringUtils.isStringValid("null"), false);
+        assertEquals(org.skynetsoftware.jutils.StringUtils.isStringValid(""), false);
+        assertEquals(org.skynetsoftware.jutils.StringUtils.isStringValid(" "), true);
+        assertEquals(org.skynetsoftware.jutils.StringUtils.isStringValid(" ", true), false);
+        assertEquals(org.skynetsoftware.jutils.StringUtils.isStringValid(null), false);
     }
 
 

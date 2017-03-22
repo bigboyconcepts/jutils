@@ -14,18 +14,18 @@ public class JUtilsTest
     @Test
     public void isEmailValidTest()
     {
-        assertEquals(true, JUtils.isEmailValid("predragcokulov@gmail.com"));
-        assertEquals(false, JUtils.isEmailValid("predragcokulov"));
-        assertEquals(false, JUtils.isEmailValid("predragc-okulov@.com"));
+        assertEquals(true, org.skynetsoftware.jutils.JUtils.isEmailValid("predragcokulov@gmail.com"));
+        assertEquals(false, org.skynetsoftware.jutils.JUtils.isEmailValid("predragcokulov"));
+        assertEquals(false, org.skynetsoftware.jutils.JUtils.isEmailValid("predragc-okulov@.com"));
     }
 
     @Test
     public void getMaxImageSizePOWTest()
     {
-        assertEquals(1024, JUtils.getMaxImageSizePOW(1345));
-        assertEquals(1024, JUtils.getMaxImageSizePOW(1024));
-        assertEquals(2048, JUtils.getMaxImageSizePOW(2049));
-        assertEquals(1024, JUtils.getMaxImageSizePOW(2047));
-        assertEquals(0, JUtils.getMaxImageSizePOW(0));
+        assertEquals(1024, org.skynetsoftware.jutils.JUtils.getMaxImageSizePOW(1345));
+        assertEquals(1024, org.skynetsoftware.jutils.JUtils.getMaxImageSizePOW(1024));
+        assertEquals(2048, org.skynetsoftware.jutils.JUtils.getMaxImageSizePOW(2049));
+        assertEquals(1024, org.skynetsoftware.jutils.JUtils.getMaxImageSizePOW(2047));
+        assertEquals(0, org.skynetsoftware.jutils.JUtils.getMaxImageSizePOW(0));
     }
 }

@@ -14,13 +14,13 @@ public class NumberUtilsTest
     @Test
     public void randomNumberInRangeTest()
     {
-        int rand = NumberUtils.nextIntInRange(0, 10);
+        int rand = org.skynetsoftware.jutils.NumberUtils.nextIntInRange(0, 10);
         assertTrue(rand >= 0 && rand <= 10);
 
-        rand = NumberUtils.nextIntInRange(0, 5);
+        rand = org.skynetsoftware.jutils.NumberUtils.nextIntInRange(0, 5);
         assertTrue(rand >= 0 && rand <= 5);
 
-        rand = NumberUtils.nextIntInRange(5, 5);
+        rand = org.skynetsoftware.jutils.NumberUtils.nextIntInRange(5, 5);
         assertTrue(rand == 5);
     }
 
