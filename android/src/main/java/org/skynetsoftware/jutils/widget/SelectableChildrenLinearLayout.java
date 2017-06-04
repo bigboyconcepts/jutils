@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 /**
@@ -60,6 +61,29 @@ public class SelectableChildrenLinearLayout extends LinearLayout
                 });
             }
         }
+    }
+
+    @Override
+    public void addView(final View child, int index, ViewGroup.LayoutParams params)
+    {
+        super.addView(child, index, params);
+        child.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                int position = getChildCount() - 1;
+                for(int i = 0; i < getChildCount(); i++)
+                {
+                    if(getChildAt(i) == child)
+                    {
+                        position = i;
+                        break;
+                    }
+                }
+                selectChild(position);
+            }
+        });
     }
 
     public void selectChild(int position)
