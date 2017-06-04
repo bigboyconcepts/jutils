@@ -72,6 +72,17 @@ public class SelectableChildrenLinearLayout extends LinearLayout
 
     public int getSelectedChildId()
     {
+        View view = getSelectedChild();
+
+        if(view != null)
+        {
+            return view.getId();
+        }
+        return 0;
+    }
+
+    public View getSelectedChild()
+    {
         View view = null;
         for(int i = 0; i < getChildCount(); i++)
         {
@@ -83,8 +94,8 @@ public class SelectableChildrenLinearLayout extends LinearLayout
         }
         if(view != null)
         {
-            return view.getId();
+            return view;
         }
-        return 0;
+        return null;
     }
 }
